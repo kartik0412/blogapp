@@ -1,0 +1,40 @@
+<%include ./partials/header%>
+<%if(error&&error.length>0){%>
+	<div class="ui main text container">
+    		<div class="ui red floating message">
+        		<p><%=error%></p>
+    		</div>
+		</div>
+		<%}%>
+     <%if(success&&success.length>0){%>
+    	<div class="ui main text container">
+    		<div class="ui green floating message">
+        		<p><%=success%></p>
+    		</div>
+    	</div>
+    <%}%>
+<div class="ui main text container segment">
+	<div class="ui huge header">Sign Up</div>
+	<form class="ui form" action="/register" method="POST">
+		<div class="ui two column grid">
+		<div class="field column">
+			<label>First Name</label>
+			<input type="text" required name="firstname" placeholder="First Name"></input>
+		</div>
+		<div class="field column">
+			<label>Last Name</label>
+			<input type="text" required name="lastname" placeholder="Last Name"></input>
+		</div>
+	</div>
+		<div class="field">
+			<label>Username</label>
+			<input type="text" required name="username" placeholder="Username"></input>
+		</div>
+		<div class="field">
+			<label>Password</label>
+			<input type="password" required name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Password"></input>
+		</div>
+		<button class="ui violet big basic button">Submit</button>
+	</form>
+</div>
+<%include ./partials/footer%>

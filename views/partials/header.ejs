@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Blog App</title>
+		<link rel="stylesheet" type="text/css" href="/app.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+	</head>
+	<body>
+		
+		<div class="ui fixed inverted menu">
+			<div class="ui container">
+				<div class="header item">
+				<i class="code icon"></i>
+				Blog Site
+				</div>
+				<a class="item" href="/blogs">Home</a>
+				<a class="item" href="/blogs/new">New Post</a>
+				<%if(!currentUser){%>
+				<a class="item ui right floated" href="/register"><i class="user plus icon"></i>SignUp</a>
+				<a class="item" href="/login"><i class="sign-in icon"></i>LogIn</a>
+				<%}else{%>
+
+				<a class="item ui right floated" href="/profile/<%=currentUser._id%>"><i class="user icon"></i>
+					<%if(!currentUser){%>
+				Profile
+				<%}else {%>
+				<%=currentUser.username%>
+				<%}%>
+			</a>
+				<a class="item" href="/logout"><i class="sign-out icon"></i>LogOut</a>
+				<%}%>
+			</div>
+		</div>
+		<br><br>

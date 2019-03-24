@@ -1,0 +1,37 @@
+<%include ../partials/header%>
+
+<%if(error&&error.length>0){%>
+    <div class="ui main text container">
+            <div class="ui red floating message">
+                <p><%=error%></p>
+            </div>
+        </div>
+        <%}%>
+     <%if(success&&success.length>0){%>
+        <div class="ui main text container">
+            <div class="ui green floating message">
+                <p><%=success%></p>
+            </div>
+        </div>
+    <%}%>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%=blog.title%></div>
+    <p><em>By - <%=blog.author.username%></em></p>
+    <div class="ui top attached">
+        <div class="ui centered medium rounded image">
+            <img src="<%=blog.image%>" width="200" height="200">
+            <span><%=blog.created.toDateString()%></span>
+        </div>
+        <br><br>
+        <p><%=blog.body%></p>
+    </div>
+    <br><br>
+   <% if(currentUser&&blog.author.id.equals(currentUser._id)){ %>
+    <a href="/blogs/<%=blog._id%>/edit"><i class="large grey edit outline icon "></i></a>
+    <form id="delete" action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+        <button class="delete-button"><i class="large red trash icon"></i></button>
+    </form>
+<%}%>
+</div>
+<%include ../partials/footer%>
