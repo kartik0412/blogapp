@@ -9,7 +9,9 @@ var express = require("express"),
     LocalStrategy = require("passport-local"),
     flash = require("connect-flash");
 
-mongoose.connect("mongodb+srv://kartik:kartik@yelcamp-ekpzi.mongodb.net/test?retryWrites=true", {
+const databaseurl="mongodb+srv://kartik:kartik@yelcamp-ekpzi.mongodb.net/test?retryWrites=true";
+
+mongoose.connect(databaseurl, {
     useNewUrlParser: true
 });
 
@@ -52,6 +54,6 @@ var blogsRoutes = require("./router/blogs"),
 app.use(blogsRoutes);
 app.use(authRoutes);
 
-app.listen(3000||process.env.PORT, process.env.IP, function() {
+app.listen(process.env.PORT, process.env.IP, function() {
     console.log("Server is running!!");
 });
