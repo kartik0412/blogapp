@@ -9,7 +9,7 @@ var express = require("express"),
     LocalStrategy = require("passport-local"),
     flash = require("connect-flash");
 
-mongoose.connect(process.env.DATABASEURL, {
+mongoose.connect("mongodb+srv://kartik:kartik@yelcamp-ekpzi.mongodb.net/test?retryWrites=true", {
     useNewUrlParser: true
 });
 
